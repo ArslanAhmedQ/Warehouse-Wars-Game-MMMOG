@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<mata name = "viewport" content="width=device-width, intial-scale = 1">
+		<title>Computing Science 309 Warehouse Wars</title>
+
+		<!-- Keep these two together!! -->
+		<script type="text/javascript"> var global = {}; </script>
+		<script src="lib/constants.js"> </script>
+
+		<link   rel="stylesheet" type="text/css" href="style.css"></link>
+		
+		<!-- credit w3 schools and-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+	
+
+		<script src="lib/jquery-3.3.1.min.js"></script>
+		<script src="lib/react.js"></script>
+		<script src="lib/react-dom.js"></script>
+		<script src="lib/babel.min.js"></script>
+		<script language="javascript" src="controller.js" > </script>
+		<script language="javascript" src="ww.js" > </script>
+		
+		<script type="text/javascript">
+
+			function send(){
+				socket.send(user + ": " + $('#message').val()); 
+				//$('#message').val();
+			}
+            var socket;
+			$(function(){
+				 socket = new WebSocket("ws://cslinux.utm.utoronto.ca:10819");
+				//socket = new WebSocket("ws://localhost:10818");
+				socket.onopen = function (event) {
+					$('#sendButton').removeAttr('disabled');
+					console.log("connected");
+				};
+				socket.onclose = function (event) {
+					alert("closed code:" + event.code + " reason:" +event.reason + " wasClean:"+event.wasClean);
+				};
+				socket.onmessage = function (event) {
+					$('#messages').append("<br/>"+event.data);
+
+					//div.ScrollTop(div.prop("ScrollHeight")); // for chat scrolling
+					
+				}
+			});
+		</script>
+		
+		<!-- rawgit for shake library -->
+		<script type="text/javascript" src="https://cdn.rawgit.com/alexgibson/shake.js/master/shake.js"></script>
+		<script>  
+			//listen to shake event
+			var shakeEvent = new Shake({threshold: 12});
+			shakeEvent.start();
+			window.addEventListener('shake', function(){   //Shakes log out
+				logout();
+			}, false);
+
+			function stopShake(){
+				shakeEvent.stop();
+			}
+
+			//check if shake is supported or not.
+			if(!("ondevicemotion" in window)){alert("Not Supported");}
+		</script>
+
+ 		
+		<script type="text/babel">
+
+			class HeaderComponent extends React.Component {
+				constructor(props) {
+					super(props);
+				}
+			   
+				render() {
+					return (
+	             		<h1>Warehouse Wars</h1>
+	      			);
+	      		}
+			}
+			
+			class LoginComponent extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = { }
+					this.loginSubmitClickHandler = this.loginSubmitClickHandler.bind(this);
+					this.loginRegisterClickHandler = this.loginRegisterClickHandler.bind(this);
+
+					this.handleUserChange = this.handleUserChange.bind(this);
+					this.handlepasswordChange = this.handlepasswordChange.bind(this);
+				}
+				loginSubmitClickHandler(e){
+					login();
+				}
+				loginRegisterClickHandler(e){
+					signup();
+				}
+
+				handleUserChange = (evt) => {
+					this.setState({ username: evt.target.value });
+					var target = evt.target.value;
+					var match = /^[a-zA-Z0-9]+$/;
+					if (!target.match(match)){
+						$('#user').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#user').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+
+				handlepasswordChange = (evt) => {
+					this.setState({ password: evt.target.value });
+					var target = evt.target.value;
+					if(target.length < 8 ){
+						$('#password').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#password').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+				
+				render(props){
+					return (
+						<div id="ui_login">
+							<div>
+							<form>
+								<h3>Log in</h3>
+								
+								<input className="input_text" type="text" id = "user" name="user" placeholder="User Name (Alphanumeric only)" title="Alphanumeric Please" onChange={this.handleUserChange}/>  <br/>
+								<input className="input_text" type="password" id= "password" name="password" placeholder="Password (min = 8 charac)" title="min 8 charac Please" onChange={this.handlepasswordChange} /> <br/> <br/>
+								
+								<p id="error" ></p> 
+								<button className="green" type="submit" id="loginSubmit"  onClick={this.loginSubmitClickHandler}> { this.props.label } Login</button>
+								<br/>
+								<button className="red" type="button" id="loginregister"  onClick={this.loginRegisterClickHandler}> { this.props.label } Signup </button>
+								<button className="red" type="reset"  onClick={this.resetClickHandler}> {this.props.label } Reset </button>
+							</form>			
+							</div>
+
+							<div>
+								<h3>High Scores:</h3>
+								<div id="highScores"> &nbsp; </div>
+							</div>
+
+							<footer>
+									<p>Copyright 2018 by Arslan & Tutis. All Right Reserved. Powered by Warehouse Wars </p>
+							</footer>
+
+						</div>
+						
+					
+					);
+				}
+			}
+
+			class SignupComponent extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = { }
+					this.signupRegisterClickHandler = this.signupRegisterClickHandler.bind(this);
+					this.signupgobackClickHandler = this.signupgobackClickHandler.bind(this);
+
+					this.handleFirstName = this.handleFirstName.bind(this);
+					this.handleLastName = this.handleLastName.bind(this);
+					this.handleUsernameChange = this.handleUsernameChange.bind(this);
+					this.handlePasswordChange = this.handlePasswordChange.bind(this);
+					this.handleRPasswordChange = this.handleRPasswordChange.bind(this);
+
+				}
+				signupRegisterClickHandler(e){
+
+					registration();
+				}
+				signupgobackClickHandler(e){
+					goback();
+				}
+
+				handleFirstName (evt) {
+					this.setState({ firstnaame: evt.target.value });
+					var target = evt.target.value;
+					var match = "";
+					if ( target==match ){
+						$('#firstName').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#firstName').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+
+				handleLastName (evt) {
+					this.setState({ lastname: evt.target.value });
+					var target = evt.target.value;
+					var match = "";
+					if ( target==match ){
+						$('#lastName').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#lastName').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+				
+
+				handleUsernameChange = (evt) => {
+					this.setState({ username: evt.target.value });
+					var target = evt.target.value;
+					var match = /^[a-zA-Z0-9]+$/;
+					if (!target.match(match)){
+						$('#userSignup').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#userSignup').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+
+				handlePasswordChange = (evt) => {
+					this.setState({ password: evt.target.value });
+					var target = evt.target.value;
+					if(target.length < 8 ){
+						$('#userPassword').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#userPassword').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+
+				handleRPasswordChange = (evt) => {
+					this.setState({ rpassword: evt.target.value });
+					var target = evt.target.value;
+					if (target.length < 8   ){
+						$('#userRPassword').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#userRPassword').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+
+
+				
+				render(props){
+					return (
+						<div id="signup">
+							<div>
+						
+								<h3>Registration</h3>
+								
+								<p>Please fill in this form to create an account. </p> 	
+								<form>		
+									<input className="input_text" type="text" id="firstName" placeholder="First Name" name="firstName" onChange={this.handleFirstName} /> 
+
+									<input className="input_text" type="text" id="lastName"  placeholder="Last Name" name="lastName" onChange={this.handleLastName}/> <br/>
+
+									<input className="input_text" type="text" id="userSignup"  placeholder="User Name (Alphanumeric only)" name="userSignup" title="Alphanumeric Please" 
+									onChange={this.handleUsernameChange}/> 		
+
+									<input className="input_text" type="password" id="userPassword" placeholder="Password (min = 8 charac)" name="userPassword" title="min 8 charac Please" onChange={this.handlePasswordChange}/> 
+
+									<input className="input_text" type="password" id="userRPassword" placeholder="Repeat Password" name="userRPassword" title="min 8 charac Please" onChange={this.handleRPasswordChange}/> <br/>
+									
+									<label> Gender </label>   
+									<input type="radio" name="gender" value="male" defaultChecked /> Male
+									<input type="radio" name="gender" value="female" /> Female
+									<input type="radio" name="gender" value="other" /> Other<br/> <br/>
+									
+									<label > Date of birth:	</label>
+									<input id="bday" type="date" name="bday" />  
+									<br/> <br/>
+
+
+									<label > How did you hear about us?    </label>
+									 <select id ="heard" name = "heard">
+										<option value = "Social">social</option>
+										<option value = "Newspaper/Magazine">newspaper</option>
+										<option value ="Friend/Family">friend</option>
+										<option value ="Others">other</option>
+									</select>
+									 <br/> <br/> <br/>
+									
+									<p id="error1" ></p> 
+
+									<button className="green" type="submit" id="signupregister"  onClick={this.signupRegisterClickHandler}> { 	
+									this.props.label } Register </button> <br/>
+									<button className="red" type="button" id="signupgoback"  onClick={this.signupgobackClickHandler}> { 	
+									this.props.label } Go Back </button>  
+
+									<button className="red" type="reset"  onClick={this.props.clickHandler}> { 	
+									this.props.label } Reset form </button> 
+									<br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> 
+								</form>
+
+								
+								
+								<footer><p> It's better to be a Member</p>
+									
+								</footer>
+							
+							</div>
+						</div>
+
+					);
+				}
+			}
+
+			class ProfileComponent extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = { }
+					this.saveChangesClickHandler = this.saveChangesClickHandler.bind(this);
+					this.deleteProfileClickHandler = this.deleteProfileClickHandler.bind(this);
+
+					this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
+					this.handleChangeLastName = this.handleChangeLastName.bind(this);
+					this.handleChangePassword = this.handleChangePassword.bind(this);
+				}
+				saveChangesClickHandler(e){
+					updateProfile();
+				}
+				deleteProfileClickHandler(e){
+					deleteProfile();
+				}
+
+				handleChangeFirstName (evt) {
+					this.setState({ change: evt.target.value });
+					var target = evt.target.value;
+					var match = "";
+					if ( target==match ){
+						$('#changeFirstName').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#changeFirstName').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+
+				handleChangeLastName (evt) {
+					this.setState({ change2: evt.target.value });
+					var target = evt.target.value;
+					var match = "";
+					if ( target==match ){
+						$('#changeLastName').css('border-bottom', 'solid 1px red');
+					} else {
+						$('#changeLastName').css('border-bottom', 'solid 1px #358efb');
+					}
+				}
+
+
+				handleChangePassword (evt) {
+
+					this.setState({ password: evt.target.value });
+						var target = evt.target.value;
+						if(target.length < 8 ){
+							$('#changePassword').css('border-bottom', 'solid 1px red');
+						} else {
+							$('#changePassword').css('border-bottom', 'solid 1px #358efb');
+						}
+				}
+
+
+				
+
+				
+				render(props){
+					return (
+						<div id="profile">
+							<div>
+
+								<h3>Welcome to your profile. Please make changes as you like.</h3>
+								<form>
+									<input className="input_text" type="text" id="changeFirstName" placeholder="Change First Name" name="changeFirstName" onChange={this.handleChangeFirstName}/>
+									<input className="input_text" type="text" id="changeLastName"  placeholder="Change Last Name"  name="changeLastName" onChange={this.handleChangeLastName} />
+
+									<input className="input_text" type="password" id="changePassword"  placeholder="Change Password (min = 8 charac)"  name="changePassword" title="min 8 charac Please" onChange={this.handleChangePassword} /> <br/>
+
+									<p id="error2" ></p> 
+
+									<button className="green" type="button" id="saveChanges" onClick={this.saveChangesClickHandler}> { 	
+									this.props.label }  Save Changes </button>
+									<br/> <br/>
+								</form>
+								<form>
+									<h3>Please confirm your username. REMEMBER: You will loose all your scores and account infromation if you delete the account. </h3>
+
+									<p id="error3" ></p> 
+									
+									<p> 
+										<button className ="delete" id="deleteProfile" type ="button"  onClick={this.deleteProfileClickHandler}> { this.props.label } DELETE ACCOUNT </button> 
+									</p>	
+								</form>
+
+								<br/> <br/>	
+								<h4> Your Scores </h4>
+
+								<table>
+									<div id="userScore"> </div>
+								</table>
+									
+				
+								{/* do more extracting user scores*/}				
+							</div>
+						</div>
+					);
+				}
+			}
+		
+			
+
+			class MainComponent extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = { }
+					this.main_menu_playClickHandler = this.main_menu_playClickHandler.bind(this);
+					this.main_menu_profileClickHandler = this.main_menu_profileClickHandler.bind(this);
+					
+				}
+				main_menu_playClickHandler(e){
+					playGame();
+				}
+				main_menu_profileClickHandler(e){
+					profileGame();
+				}
+
+				/*send(evt) {
+					this.setState({ x: evt.target.value });
+					var target = evt.target.value;
+
+					socket.send(target);
+					
+				}*/
+
+
+				render(props){
+					return (
+						<div id="main_menu">
+							<div>
+								<h2>Main Menu</h2>
+								<button className="norm" type="submit" id="main_menu_play" onClick={this.main_menu_playClickHandler}> { 	
+									this.props.label } Play Game </button>   
+								<br/>
+								<button className="norm" type="submit" id="main_menu_profile" onClick={this.main_menu_profileClickHandler}> { 	
+									this.props.label }  Profile </button> 
+								<br/>
+
+							{/*<h3>Chat</h3>
+								<div id="messages" style={{border:"1px solid black", width:"30%", height:"200px", color: "grey", overflow:"auto"}} ></div>
+								<form> 
+									<input type="text" id="message" style={{border:"1px solid black", width:"20%", height:"20px", overflow: "auto"}}/> 
+
+									<button style={{border:"1px solid black", color:"green", width:"10%", height:"30px",  overflow: "auto" }}
+									 type = "button" id="sendButton" disabled='disabled' onClick={this.send}> Send </button> 
+								</form>
+							*/}
+							
+
+							
+								<h3>High Scores:</h3>
+								<div id="menuHighScores"> &nbsp; </div>
+
+							</div>
+						</div>
+					);
+				}
+			}
+
+			 class MyComponent extends React.Component {
+			      constructor(props) {
+				       super(props);
+			      }
+
+			      render(){
+			          // Yea, this is not HTML!!
+			          return (  
+			          		<div style={{border:"1px solid black"}} > 
+
+			          			<HeaderComponent />
+			          			<LoginComponent />
+			          			<SignupComponent />
+			          			<ProfileComponent/>
+			          			<MainComponent />
+			          		</div>
+			          );
+			      }
+			    }
+
+
+			ReactDOM.render( <MyComponent/>, document.getElementById("moon"));
+	
+			//ReactDOM.render( <VoteComponent proposition="Want a poll?"/>, document.getElementById("VOTE"));
+		</script>
+	</head>
+
+	<body bgcolor="ada6a6">
+
+	<center>
+		<ul>
+			<li><a id="mainnav" class="homegreen" href="#"><i class="fa fa-home" style="font-size:16px"> </i> </a></li>
+			<li><a id="gamenav" clsss = "red-input">  Main Game</a> </li>
+			<li><a id="profilenav">  Profile</a> </li>
+			<li style= "float:right">  <a id="logout" class= "active">Logout</a> </li>
+		</ul>
+
+
+		<div id="moon"></div>
+		
+	
+
+
+		<div id="main_game">
+			<table>
+				<tr>
+					<td> <div id="stage"> </div></td> 
+					<td>
+						<center>
+							<h2>Legend</h2>
+							<table class="legend">
+								<tr>
+									<td> <img src="icons/blank.gif" id="blankImage" /> </td>
+									<td> <img src="icons/emblem-package-2-24.png" id="boxImage" /> </td>
+									<td> <img src="icons/face-cool-24.png" id="playerImage" /> </td>
+									<td> <img src="icons/face-devil-grin-24.png" id="monsterImage" /> </td>
+									<td> <img src="icons/wall.jpeg" id="wallImage" /> </td>
+								</tr>
+								<tr>
+									<td> Empty <br/> Square </td>
+									<td> Box </td>
+									<td> Player </td>
+									<td> Monster </td>
+									<td> Wall </td>
+								</tr>
+							</table>
+							<div id="stage"> &nbsp; </div>
+							<h2>Controls</h2>
+							<table class="controls">
+								<tr>          <!-- onclick= playerMove('NW'); -->
+									<td><img src="icons/north_west.svg" id="north_west_btn" /></td>
+									<td><img src="icons/north.svg" id="north_btn"  /></td>
+									<td><img src="icons/north_east.svg"  id="north_east_btn" /></td>
+								</tr>
+								<tr>
+									<td><img src="icons/west.svg"  id="west_btn" /></td>
+									<td>&nbsp;</td>
+									<td><img src="icons/east.svg" id="east_btn" /></td>
+								</tr>
+								<tr>
+									<td><img src="icons/south_west.svg"  id="south_west_btn" /></td>
+									<td><img src="icons/south.svg"  id="south_btn" /></td>
+									<td><img src="icons/south_east.svg"  id="south_east_btn" /></td>
+								</tr>
+							</table>
+							<p>Get the lowest score possible</p><br>
+							<p id="GameScore">Score: 0</p>
+
+							<h3>Chat </h3>
+							<div id="messages" style="border:1px solid black; width:90%; background-color: grey; height:200px; overflow: auto;" ></div> </br>
+
+							<form> 
+								<input type="text" style="border:1px solid black; width:60%; height:20px; overflow: auto;" id="message" />
+								<input style="border:1px solid black; background-color: #4CAF50; color: white; width:25%; 
+								 height:30px; cursor: pointer; opacity: 0.7; overflow: auto;" 
+								type="button" id="sendButton" value="Send" disabled='disabled' onclick="send();" />
+							</form>
+							
+
+							
+
+						</center>
+					</td>
+	
+				</tr>
+			</table>
+		</div>
+
+	</center>
+
+
+	</body>
+</html>
+
+
+
+
+
+								

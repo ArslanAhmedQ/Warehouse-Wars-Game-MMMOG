@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<title>Computing Science 309 Warehouse Wars</title>
+		<script language="javascript" src="jquery-3.3.1.min.js" > </script>
+		<script language="javascript" src="ww.js" > </script>
+
+		<script language="javascript" src="indexjs.js" > </script>
+		<link rel="stylesheet" type="text/css" href="style.css"></link>
+
+		<style>
+		</style>
+	</head>
+	<body bgcolor="ada6a6">
+		<center>
+				<ul>
+					<li><a id="mainnav"> Main Menu</a></li>
+					<li><a id="gamenav">  Main Game</a> </li>
+					<li><a id="profilenav">  Profile</a> </li>
+					<li style= "float:right">  <a id="logout" class= "active">Logout</a> </li>
+				</ul>
+
+
+			<h1>Warehouse Wars</h1>
+			<div id="ui_login">
+				<div>
+				<form>
+					<h3>Log in</h3>
+					<!-- https://www.tjvantoll.com/2013/01/01/enter-should-submit-forms-stop-messing-with-that/ -->
+					<input class="input_text" type="text" id = "user" name="user" placeholder="User Name (Alphanumeric only)" title="Alphanumeric Please" pattern="^[a-zA-Z0-9]+$" required=''/>  <br>
+					<input class="input_text" type="password" id= "password" name="password" placeholder="Password (min = 8 charac)" pattern=".{8,}" title="min 8 charac Please" required/> <br> <br>
+					<p id="error" ></p> 
+					<input class="green" type="submit" id="loginSubmit"  value="Login" /> <br>
+					<input class="red" type="button" id="loginregister" value="Register" />						
+						
+					<input class="red" type="reset" value="Reset form"/>
+				</form>			
+				</div>
+				<div>
+					<h3>High Scores:</h3>
+					<div id="highScores"> &nbsp; </div>
+				</div>
+			</div>
+
+			<div id="main_menu">
+				<div>
+					<h2>Main Menu:</h2>
+					<input class="norm" type="submit" id="main_menu_play"  value="Play Game" /> <br>
+					<input class="norm" type="submit" id="main_menu_profile" value="Profile" />	<br>
+
+					<h3>High Scores:</h3>
+					<div id="menuHighScores"> &nbsp; </div>
+
+				</div>
+			</div>
+
+				<div id="signup">
+					<div>
+					
+						<h3>Registration</h3>
+						<!-- https://www.tjvantoll.com/2013/01/01/enter-should-submit-forms-stop-messing-with-that/ -->
+						<p>Please fill in this form to create an account. </p> 	
+						<form>		
+							  <input class="input_text" type="text" id="firstName" placeholder="First Name" name="firstName" required > 
+   						      <input class="input_text" type="text" id="lastName"  placeholder="Last Name" name="lastName" required> <br>
+						      <input class="input_text" type="text" id="userSignup"  placeholder="User Name (Alphanumeric only)" name="userSignup" title="Alphanumeric Please" pattern="^[a-zA-Z0-9]+$" required> 				  
+						      <input class="input_text" type="password" id="userPassword" placeholder="Password (min = 8 charac)" name="userPassword" pattern=".{8,}" title="min 8 charac Please" required> 
+						      <input class="input_text" type="password" id="userRPassword" placeholder="Repeat Password" name="userRPassword" title="min 8 charac Please" pattern=".{8,}" required> <br>
+							  
+							  <label>Gender </label>   
+								<input type="radio" name="gender" value="male" checked> Male
+								<input type="radio" name="gender" value="female"> Female
+								<input type="radio" name="gender" value="other"> Other<br> <br>
+							 
+							  <label for ="birthday"> Date of birth:</label>	
+							  <input type="date" id="bday" name="bday"> <br> <br>
+
+							  <label for = "heard"> How did you hear about us?</label>
+								<td> <select id ="heard" name = "heard" required>
+									<option value = "Social">social</option>
+									<option value = "Newspaper/Magazine">newspaper</option>
+									<option value ="Friend/Family">friend</option>
+									<option value ="Others">other</option></select>
+								</td> <br> <br> <br>
+								
+
+						     
+
+							<input class="green" type="submit" id="signupregister" value="Register" /> <br>
+							<input class="red" type="button" id="signupgoback"  value="Go Back"/>
+
+							<input class="red" type="reset" value="Reset form"/> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+						</form>
+							
+							<footer>It's better to be a Member
+							</footer>
+						
+					</div>
+				</div>
+
+			<div id="profile">
+				<h3>Welcome to your profile. Please make changes as you like.</h3>
+				<form>
+					<input type="text" id="changeFirstName" Placeholder="Change First Name" name="changeFirstName" >
+					<input type="text" id="changeLastName"  Placeholder="Change Last Name"  name="changeLastName" >
+					<input type="password" id="changePassword"  Placeholder="Change Password (min = 8 charac)"  name="changePassword" pattern=".{8,}" title="min 8 charac Please"> <br>
+
+					 <input class="green" type="button" id="saveChanges" value="Save Changes" > <br> <br>
+				 </form>
+				 <form>
+					 <h3>Please confirm your username. REMEMBER: You will loose all your scores and account infromation if you delete the account. </h3>
+					 
+					 <p><input id="deleteProfile" type ="button" class ="delete" value="DELETE ACCOUNT">  <!--which one to be submit or button -->
+				</form>
+
+				<br> <br>	
+				<h4> Your Scores </h4>
+				<table>
+					<div id="userScore"> </div>
+				</table>	
+
+			<!-- do more -->
+			</div>
+			
+			<div id="main_game">
+				<table>
+					<tr>
+						<td> <div id="stage"> </div></td> 
+						<td>
+							<center>
+								<h2>Legend</h2>
+								<table class="legend">
+									<tr>
+										<td> <img src="icons/blank.gif" id="blankImage" /> </td>
+										<td> <img src="icons/emblem-package-2-24.png" id="boxImage" /> </td>
+										<td> <img src="icons/face-cool-24.png" id="playerImage" /> </td>
+										<td> <img src="icons/face-devil-grin-24.png" id="monsterImage" /> </td>
+										<td> <img src="icons/wall.jpeg" id="wallImage" /> </td>
+									</tr>
+									<tr>
+										<td> Empty <br/> Square </td>
+										<td> Box </td>
+										<td> Player </td>
+										<td> Monster </td>
+										<td> Wall </td>
+									</tr>
+								</table>
+								<div id="stage"> &nbsp; </div>
+								<h2>Controls</h2>
+								<table class="controls">
+									<tr>          <!-- onclick= playerMove('NW'); -->
+										<td><img src="icons/north_west.svg" id="north_west_btn" /></td>
+										<td><img src="icons/north.svg" id="north_btn"  /></td>
+										<td><img src="icons/north_east.svg"  id="north_east_btn" /></td>
+									</tr>
+									<tr>
+										<td><img src="icons/west.svg"  id="west_btn" /></td>
+										<td>&nbsp;</td>
+										<td><img src="icons/east.svg" id="east_btn" /></td>
+									</tr>
+									<tr>
+										<td><img src="icons/south_west.svg"  id="south_west_btn" /></td>
+										<td><img src="icons/south.svg"  id="south_btn" /></td>
+										<td><img src="icons/south_east.svg"  id="south_east_btn" /></td>
+									</tr>
+								</table>
+								<p>Get the lowest score possible</p><br>
+								<p id="GameScore">Score: 0</p>
+							</center>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</center>
+
+		</main>
+		
+
+	</body>
+</html>
+

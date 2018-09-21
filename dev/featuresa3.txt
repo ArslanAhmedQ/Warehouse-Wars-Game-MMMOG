@@ -1,0 +1,337 @@
+Setup: /1
+	[YN] - script present and works to make marking simple, clear, easy!
+	       Done by: Both
+               Explanation: database setup works, one spot to enter all info 
+
+client: /38
+	Note: Some of the following are really both backend and frontend
+	features, though it is easier to check on the frontend.
+
+	[YN] - Javascript+JQuery code is ok
+	       Done by: Both
+   	       Explanation:  done		
+			
+	[YN] - Javascript+JQuery code is good. Gets the job done, but is not simple, 
+		not concise, difficult to read.
+	       Done by: Both
+   	       Explanation:  done
+	[YN] - Javascript+JQuery code is great
+		Simple, clear, concise
+	       Done by: Both
+   	       Explanation:  done
+	[YN] - JS+JQuery in external .js file
+	       Done by: Both
+   	       Explanation:  done
+
+	[YN] - Good use of CSS, gets the job done, not easy to read, not clear, not short
+	       Done by: Both
+   	       Explanation:  
+	[YN] - Great use of CSS 
+		In external CSS, at head, inline as appropriate
+		CSS is simple, clear, concise
+	       Done by: Both
+   	       Explanation:  lots of use for it
+
+	[YN] - validation done on front end 
+	[YN] - invalid data causes appropriate mes
+	       Done by: Both
+   	       Explanation:  
+
+	[YN] - member authentication (that is, is there a login page)
+	       Done by: Both
+   	       Explanation:  there is, with reset button
+	[YN] - member authorization for static server (login works on static server)
+	       Done by: Both
+   	       Explanation:  it does
+	[YN] - member managment a few fields (at least user name, password)
+	       Done by: Both
+   	       Explanation:  done, more interesting inputs in registration page
+
+	[YN] - top scores on display somewhere
+	       Done by: Both
+   	       Explanation:  ???
+	[YN] - users scores on display somewhere
+	       Done by: Both
+   	       Explanation:  ???
+	[YN] - ability to join an existing game
+	       Done by: Both
+   	       Explanation:  ???
+
+	[YN] - Player Move via keyboard for desktop
+	       Done by: Both
+   	       Explanation:  So it's easy to play the game 
+	[YN] - Player Move via icons/other for tablet
+	       Done by: Both
+   	       Explanation:  default choice for users
+
+		NOTE: Below are really both client and server, 
+		NOTE: but easier to check here in the client.
+	[YN] - Monsters move by themselves
+	       Done by: Both
+   	       Explanation:  Monsters move every 1 second
+	[YN] - >= 1 advanced Monster
+	       Done by: Both
+   	       Explanation:  Attacks player if he/she is one tile away. Otherwise moves randomly 
+	[YN] - >= 2 advanced Monsters
+	       Done by: Both
+   	       Explanation:   ??
+	[YN] - Player killed by monster
+	       Done by: Both
+   	       Explanation:  alert is sent informing that you lost and will be sent to main men
+	[YN] - Player can move boxes
+	       Done by: Both
+   	       Explanation:  player can push boxes until a stack hits a wall or monster
+	[YN] - Monster dies when surrounded
+	       Done by: Both
+   	       Explanation:  dies when monster can't move anymore
+	[YN] - Player identified by its own icon 
+		(highlighted to differentiate from other players)
+	       Done by: both 
+   	       Explanation:  ???
+	[YN] - Gameplay works with single player
+	       Done by: Both
+   	       Explanation:  Implemented
+	[YN] - Game play works with multiple players
+	       Done by: both
+   	       Explanation:  ???
+
+	[YN] - works on desktop  (Firefox in the lab)
+	       Done by: Both
+   	       Explanation:  Yes
+	[YN] - works ok on tablet (Nexus 7 or iPad Mini)
+	       Done by: Both
+   	       Explanation:  Yes
+	[YN] - works well on tablet (Nexus 7 or iPad Mini)
+	       Done by: Both
+   	       Explanation:  Yes on both portable and landscape
+
+	[YN] - mobile feature one (ok)
+	       Done by: Both
+   	       Explanation:  done
+	[YN] - mobile feature one (ok+great)
+	       Done by: Both
+   	       Explanation:  shakes log out
+
+	[YN] - mobile feature two (ok)
+	       Done by: Both
+   	       Explanation:  done
+	[YN] - mobile feature two (ok+great)
+	       Done by: Both
+   	       Explanation:  implementing this one, gyroscope to move the player
+
+	[YN] - usability ok >=2 of the below
+	[YN] - usability good >=4 of the below
+	[YN] - usability great >=6 of the below
+
+		usability: navigation model clear and uniform 
+			(ie same navigation appearing on all 'pages' with options clear)
+			So for example, you have the page name in the same spot on all pages
+			and it matches the navigation used to get to that page.
+	       Done by: Both
+   	       Explanation:  done
+
+		usability: current location within app clear (ie highlight
+			the current location within navigation)
+	       Done by: Both
+   	       Explanation: ???
+
+		usability: options/operations at current location clear and meaningful
+			('udate profile' vs 'submit')
+	       Done by: Both
+   	       Explanation:  done
+
+		usability: forms have appropriate feedback
+	       Done by: Both
+   	       Explanation: errors checked in react and JavaScript 
+
+		usability: form fields clearly labelled
+	       Done by: Both
+   	       Explanation: it is  
+
+		usability: result of operations clear, for example, 
+			if a connection to server fails, this is made clear
+			to the user. If an update to profile is successful,
+			it is made clear to the user.
+	       Done by: Both
+   	       Explanation:  message displayed successfully in profile page 
+
+	[YN] - ok design (appearance) >=2 of six below
+	[YN] - good design (appearance) >= 4 of six below
+	[YN] - great design (appearance) >= 6 of six below
+
+		design: looks great 
+	        Done by: Both
+   	        Explanation: it does decent and nice pattern and arranging even in the tablet  
+		design: font size and choice great
+	        Done by: Both
+   	        Explanation:  different font and font sizes have been used
+		design: page layout/organization
+	        Done by: Both
+   	        Explanation:  organization is done by navigation and divider arranged the stuff 
+		design: page decorations great
+	       	Done by: Both
+   	       	Explanation:   
+		design: color scheme great
+	        Done by: Both
+   	        Explanation: We believe is good, consice, decent. template of colour green, red and grey.  
+		design: chose interesting icons
+	        Done by: Both
+   	        Explanation:  There is an icon for home navigation, that opacity changes when hover over. 
+
+
+express server:  /17
+	[YN] - all static content correctly stored and retrievable from
+		the static server
+	       	Done by: Both
+   	       	Explanation: through MongoDB
+	
+	[YN] - Javascript code is ok
+	       	Done by: Both
+   	       	Explanation: it is
+	[YN] - Javascript code is good. Gets the job done, but is not simple, 
+		not concise, difficult to read.
+	       	Done by: Both
+   	       	Explanation: simple, concise
+	[YN] - Javascript code is great
+		Simple, clear, concise
+	       	Done by: Both
+   	       	Explanation: done
+
+	[YN] - some validation done on backend
+	       	Done by: Both
+   	       	Explanation: done
+	[YN] - all validation done on backend 
+		(ie username characters allowed, password characters allowed)
+	       	Done by: Both
+   	       	Explanation: username and password validation 
+	[YN] - effective routes (ie good, clear restful api)
+	       	Done by: Both
+   	       	Explanation: used all restfull api with proper error code
+	[YN] - effective use of route parameters
+	       	Done by: Both
+   	       	Explanation: done
+
+	[YN] - returns useful HTTP error codes/success in most cases
+	       	Done by: Both
+   	       	Explanation: in all cases
+
+	[YN] - rest: authentication credentials/token sent with each request (no sessions)
+	       	Done by: Both
+   	       	Explanation: absolutely no sessions
+	[YN] - rest authorization, restricted access to certain operations below
+	       	Done by: Both
+   	       	Explanation: 
+	[YN] - rest: user profile managment CREATE
+	       	Done by: Both
+   	       	Explanation: done
+	[YN] - rest: user profile managment RETRIEVE
+	       	Done by: Both
+   	       	Explanation: done
+	[YN] - rest: user profile managment UPDATE
+	       	Done by: Both
+   	       	Explanation: done 
+
+	[YN] - rest: score RETRIEVE high scores
+	       	Done by: both
+   	       	Explanation: ???
+	[YN] - rest: score RETRIEVE users scores
+	       	Done by: both
+   	       	Explanation: ???
+	[YN] - rest: score CREATE/UPDATE users scores (to add new score)
+	       	Done by: both
+   	       	Explanation: ???
+
+react: /5
+	[YN] - React used in login 
+	       	Done by: Both
+   	       	Explanation: it is
+	[YN] - React used in member managment, simple interface
+	       	Done by: Both
+   	       	Explanation: in account update and registration
+	[YN] - React used in member managment, complex interface
+	       	Done by: Both
+   	       	Explanation: in registration 
+	[YN] - React used in main game page (outside of actual game board)
+	       	Done by: Both
+   	       	Explanation: it is home page
+	[YN] - Clear evidence of excellent understanding of React
+	       	Done by:
+   	       	Explanation: 
+
+game server: /11
+	[YN] - Javascript code is ok
+	       	Done by: Both
+   	       	Explanation: 
+	[YN] - Javascript code is good. Gets the job done, but is not simple, 
+		not concise, difficult to read.
+	       	Done by: Both
+   	       	Explanation: 
+	[YN] - Javascript code is great
+		Simple, clear, concise\
+	       	Done by: Both
+   	       	Explanation: 
+	[YN] - Effective use of OO javascript, for example, Inheritance for monsters
+\	       	Done by: Both
+   	       	Explanation: 
+
+	[YN] - efficient handling of worlds, for example, only sending world delta
+		to clients
+	       	Done by: 
+   	       	Explanation: 
+
+	[YN] - involves model only, no view code here
+	       	Done by: Both
+   	       	Explanation: 
+	[YN] - survives client disconnects (that is server does not crash)
+	       	Done by: 
+   	       	Explanation: 
+	[YN] - appropriate action taken on client disconnect (ie remove player
+		from game)
+	       	Done by: 
+   	       	Explanation: 
+	[YN] - does not allow unauthenticated users on game server
+	       	Done by: 
+   	       	Explanation: 
+	[YN] - some validation on backend
+	       	Done by: Both
+   	       	Explanation: 
+	[YN] - complete validation on backend (ie verifies fields
+		in users move before making move, sending appropriate
+		message back if not valid, or ignore clients move).
+	       	Done by: Both
+   	       	Explanation: 
+
+	NOTE: other marks for game server appear in the clients
+	NOTE: section, where they are easier to verify
+
+Extra features: /??
+	Examples: 
+		- multiple worlds with game lobby
+		- responsive design
+		- use of canvas
+		- additional interesting application of sensors
+		- use of mongoDB for static content
+	       	Done by: Both
+   	       	Explanation: new databse
+		- use of microphone, speaker, camera
+		- works on multiple form factors (tablet, phone, landscape, portrait)
+	       	Done by: Both
+   	       	Explanation: it does
+		- full user managment system, managing many user attributes, all with 
+			validation and appropriate form handling
+		- user to user chat supported
+	       	Done by: Both
+   	       	Explanation: works, user to user
+		- online radar display showing relative location of users
+		- Additional interesting mobile features, for example, 
+			shake to use an escape, tilt to move
+	       	Done by: Both
+   	       	Explanation: shake to log out
+		- scrolling viewport on large world (works well for
+			mobile devices!)
+		
+Level 3 features 
+Level 2 features 
+Level 1 features 
+
+

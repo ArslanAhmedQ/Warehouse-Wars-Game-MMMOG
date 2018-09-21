@@ -1,0 +1,178 @@
+Features: For each feature you implement, move to the Implemented section and
+explain who did it (utorid) and how you did it. You can consider these as 
+almost user stories, if you just add a bit to them. Add more features/user stories at the bottom.
+Move them up when completed.
+
+------------------------------------------------------------------------------------
+Implemented: 
+------------------------------------------------------------------------------------
+
+0) Setup
+   Done by: Both
+   Explanation: database setup works, one spot to enter all info 
+   
+
+01) WW - Javascript code is great Simple, clear, concise
+    Done by: Both 
+    Explanation: JS in external .js file and Great use of JQuery+CSS from JS
+
+02) WW - Effective use of OO javascript, for example, Inheritance for monsters
+    Done by: Both
+    Explanation: for example, Inheritance for monsters
+
+03) WW - Single HTML page application, with div hides/shows by JS.
+    Done by: Both 
+    Explanation: switch state accordingly 
+
+04) WW - Monsters move by timer
+    Done by: Both 
+    Explanation: Monsters move every 1 second
+
+05) WW - Smart Monster
+    Done by: Both
+    Explanation: Attacks player if he/she is one tile away. Otherwise moves randomly 
+
+06) WW - Player Move via keyboard
+    Done by: Both 
+    Explanation: So it's easy to play the game 
+
+07) WW - Player Move via icons
+    Done by: Both
+    Explanation: default choice for users
+
+08) WW - Player killed by monster
+    Done by: Both 
+    Explanation: alert is sent informing that you lost and will be sent to main menu
+
+09) WW - Player can move boxes
+    Done by: Both
+    Explanation: player can push boxes until a stack hits a wall or monster
+
+10) WW - Monster dies when surrounded
+    Done by: Both  
+    Explanation: dies when monster can't move anymore
+
+11) WW - Score on display in main page
+    Done by: both
+    Explanation: so people know who are the high scorers.
+
+
+
+
+12) Rest API - Javascript is great simple, clear, concise
+    Done by: both
+    Explanation: Try to make as much simple and clear with several small function
+
+13) Rest API - Registration form/User profile has HTML validation
+    Done by: both
+    Explanation: front end html validation
+
+14) Rest API - Registration form/User profile has Javascript validation
+    Done by: both
+    Explanation: front end JS validation
+
+15) Rest API - Registration form lets user know if issues
+    Done by: both
+    Explanation: shows user if issues in form of html red borders (please input the field through title), JS validation (shows alert box or setCustomValidit or confirm in case of Deleting the profile)
+
+16) Rest API - registration form uses textboxes, radio buttonn checkboxes, and other 	     interesting inputs
+    Done by: both
+    Explanation: includes birthday, gender, how did you hear about us and others
+
+17) Rest API - API uses GET correctly
+    Done by: both
+    Explanation: for retreiving the score table
+
+18) Rest API - Resful API uses POST correctly
+    Done by: both
+    Explanation:  for updating the profile
+
+19) Rest API - Resful API uses PUT correctly
+    Done by: both
+    Explanation: for creating the account
+
+20) Rest API - uses DELETE correctly and absolutly no sessions 
+    Done by: both
+    Explanation: when deleting the account
+
+21) Rest API - Returns appropriate http error code/success in all cases
+    Done by: both
+    Explanation: most of it has been taken care of
+
+22) Rest API - Database used effectively (simple queries with prepared statements)
+    Done by: both
+    Explanation: So it is simple and clear
+
+23) Rest API - Score correctly updated in back end
+    Done by: both
+    Explanation: A person score changes if they beat their high score.
+
+
+
+
+
+26) Description: CSS -Great use of CSS 
+		In external CSS, at head, inline as appropriate
+		CSS is simple, clear, concise
+    Done by: both
+    Explanation: UI looks good
+
+
+
+27) Excellent use of MVC
+    Done by: Both
+    Explanation: We have a model view and controller, indexjs.js as controller, ww_node.js as model & ww.js and index.html as view
+
+28) Good use of sql
+    Done by: Both 
+    Explanation: We have complex queries
+
+29) Navigation highlights which page they are on
+    Done by: Both 
+    Explanation: hover on button makes their opacity more
+
+30) Good implementation of navigation in the controller.
+    Done by: Both
+    Explanation: have navigation to go to different state 
+
+31) Good schema
+	Done by: Both
+	Explanation: 
+
+------------------------------------------------------------------------------------
+Unimplemented:
+------------------------------------------------------------------------------------
+24) Rest API - Authentication: Each request has credentials sent as necessary
+    Done by: both
+    Explanation: 
+
+25) Rest API - Authorization done on each request as necessary, with access
+		to personal account details limited
+    Done by: both
+    Explanation:
+
+Add more user stories below... move them up when done
+
+26) Description: 
+    Done by: UTORID 
+    Explanation: 
+
+27) Description: 
+    Done by: UTORID 
+    Explanation: 
+
+28) Description: 
+    Done by: UTORID 
+    Explanation: 
+
+29) Description: 
+    Done by: UTORID 
+    Explanation: 
+
+30) Description: 
+    Done by: UTORID 
+    Explanation: 
+
+31) Description: 
+    Done by: UTORID 
+    Explanation: 
